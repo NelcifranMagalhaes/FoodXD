@@ -1,0 +1,25 @@
+
+
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  host: localhost
+  username: postgres
+  password: root
+
+development:
+  <<: *default
+  database: FoodXD_development
+
+ 
+test:
+  <<: *default
+  database: FoodXD_test
+
+
+production:
+  <<: *default
+  database: FoodXD_production
+  username: FoodXD
+  password: <%= ENV['FOODXD_DATABASE_PASSWORD'] %>
