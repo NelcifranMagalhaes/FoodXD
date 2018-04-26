@@ -10,6 +10,73 @@
   </head>
 
   <body>
-    <%= yield %>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <%= link_to root_path, title: "FoodXD", class: "brand-logo" do %>
+        FoodXD
+      <% end %>
+
+
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+        <%- if current_user.blank?%>
+        <li>
+
+          <%= link_to 'Log in',   new_user_session_path %>
+
+        </li>
+        <% end %>  
+
+        <%- if current_user.blank?%>
+          <li>
+
+            <%= link_to 'Sign Up',    new_user_registration_path%>
+
+          </li>
+        <% end %>
+          
+        <%- if current_user.present?%>
+
+
+          <li>
+          
+            <%= link_to('Log out'.html_safe,  destroy_user_session_path , method: 'delete',class: 'waves-effect waves-light btn')%>
+          </li>
+        <% end %>
+      </ul>
+
+
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+    <%- if current_user.present?%>
+      <div class="row">
+        <%= current_user.email%>
+      </div>
+    <% end %>
+      <div class="card">
+      <div class="card-content">
+        <div class="row">
+          <div class="col m10 offset-m1">
+            <%= yield %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <footer class="page-footer light-blue">
+
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+
   </body>
 </html>
