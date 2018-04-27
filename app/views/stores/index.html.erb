@@ -1,29 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Stores</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="col s12 m7">
+    <h2 class="header">Stores</h2>
     <% @stores.each do |store| %>
-      <tr>
-        <td><%= store.name %></td>
-        <td><%= store.address %></td>
-        <td><%= link_to 'Show', store %></td>
-        <td><%= link_to 'Edit', edit_store_path(store) %></td>
-        <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="https://lorempixel.com/100/190/nature/6">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p><%= store.name %></p>
+          <p><%= store.address %></p>
+        </div>
+        <div class="card-action">
+          <td><%= link_to 'Show', store %></td>
+          <td><%= link_to 'Edit', edit_store_path(store) %></td>
+          <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </div>
+      </div>
+    </div>
     <% end %>
-  </tbody>
-</table>
 
-<br>
+</div>
 
-<%= link_to 'New Store', new_store_path %>
+
+<%= link_to new_store_path ,title: "new store" do %>
+  <i class="medium material-icons left">add_box</i>
+<% end %> 

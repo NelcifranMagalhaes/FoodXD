@@ -1,6 +1,13 @@
-<h1>Editing Store</h1>
+<h4>Editing Store</h4>
 
 <%= render 'form', store: @store %>
 
-<%= link_to 'Show', @store %> |
-<%= link_to 'Back', stores_path %>
+<%= link_to @store  do %>
+	<i class="material-icons left">remove_red_eye</i>
+<% end %> 
+
+
+<%= link_to stores_path do %>
+	<i class="material-icons left">arrow_back</i>
+<% end %> 
+

@@ -1,27 +1,19 @@
-<%= form_with(model: store, local: true) do |form| %>
-  <% if store.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(store.errors.count, "error") %> prohibited this store from being saved:</h2>
+<%= simple_form_for @store do |form| %>
+  <%= form.error_notification errors:true%>
 
-      <ul>
-      <% store.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="row">
+    <div class="input-field col s6">
+      <%= form.input :name %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
+  <div class="row">
+    <div class="input-field col s6">
+      <%= form.input :address %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="row">
+      <%= form.button :submit ,class: 'btn btn-primary grey'%>
   </div>
 <% end %>
