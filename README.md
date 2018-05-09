@@ -1,24 +1,32 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# FOOD XD
+> Search FOod.
 
-Things you may want to cover:
+An app for add stores for searching in maps.
 
-* Ruby version
 
-* System dependencies
+## Installation
 
-* Configuration
+Windows & Linux:
 
-* Database creation
+```sh
+git clone or download the project
+```
 
-* Database initialization
 
-* How to run the test suite
+## Development setup
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+```sh
+bundle install
+rails db:create
+rails db:migrate
+rails s
+```
 
-* ...
+## Meta
+
+Nelcifran Magalhaes – [@Linkedin](https://www.linkedin.com/in/nelcifranpires/
+) – nelcifranpires@gmail.com
+
