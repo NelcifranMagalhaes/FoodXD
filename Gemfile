@@ -65,3 +65,4 @@ gem 'materialize-sass'
 gem 'material_icons'
 gem 'devise'
 gem 'simple_form'
+gem "cocoon"

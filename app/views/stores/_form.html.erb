@@ -1,19 +1,37 @@
-<%= simple_form_for @store do |form| %>
-  <%= form.error_notification errors:true%>
+<%= simple_form_for @store do |f| %>
+  <%= f.error_notification errors:true%>
 
   <div class="row">
     <div class="input-field col s6">
-      <%= form.input :name %>
+      <%= f.input :name %>
     </div>
   </div>
 
   <div class="row">
     <div class="input-field col s6">
-      <%= form.input :address %>
+      <%= f.input :address %>
     </div>
   </div>
 
   <div class="row">
-      <%= form.button :submit ,class: 'btn btn-primary grey'%>
+    <div class="input-field col s6">
+      <%= f.input :logo %>
+    </div>
+  </div>
+
+  <h4>Foods</h4>
+  <div id="foods">
+    <%= f.simple_fields_for :foods do |food| %>
+      <%= render 'food_fields', f: food %>
+    <% end %>
+   </div>
+
+   <div class="links">
+     <%= link_to_add_association '+food', f, :foods ,class: "btn waves-effect waves-light blue right white-text"%>
+     <br><br>
+   </div>
+
+  <div class="row">
+      <%= f.button :submit ,class: 'btn btn-primary grey'%>
   </div>
 <% end %>
