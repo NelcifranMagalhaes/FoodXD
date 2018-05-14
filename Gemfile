@@ -67,3 +67,4 @@ gem 'devise'
 gem 'simple_form'
 gem "cocoon"
 gem 'geocoder'
+gem 'gmaps4rails'
