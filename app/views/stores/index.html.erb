@@ -4,11 +4,9 @@
 
 <p id="notice"><%= notice %></p>
 
-
  <div style='width: 800px;'>
     <div id="geolocation" style='width: 800px; height: 400px;'></div>
   </div>
-
 
 <%= link_to new_store_path ,title: "new store" do %>
   <i class="medium material-icons left">add_box</i>
@@ -32,7 +30,7 @@
         <div class="card-action">
           <td><%= link_to 'Show', store %></td>
           <td><%= link_to 'Edit', edit_store_path(store) %></td>
-          <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Você tem certeza?'} %></td>
         </div>
       </div>
     </div>
@@ -52,7 +50,9 @@ function displayOnMap(position){
   var markers = handler.addMarkers(
       <%=raw @hash.to_json %>
   );
-  handler.map.centerOn(markers);
+  //handler.map.centerOn(markers);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
 
 };
   
