@@ -3,7 +3,7 @@ class Store < ApplicationRecord
 	accepts_nested_attributes_for :foods, reject_if: :all_blank, allow_destroy: true
  	has_one_attached :logo
 
- 	geocoded_by :address   # can also be an IP address
+	geocoded_by :address   # can also be an IP address
 	after_validation :geocode          # auto-fetch coordinates
 	
 	validates :address,presence: true

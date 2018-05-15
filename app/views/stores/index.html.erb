@@ -5,6 +5,15 @@
 <p id="notice"><%= notice %></p>
 
 
+ <div style='width: 800px;'>
+    <div id="geolocation" style='width: 800px; height: 400px;'></div>
+  </div>
+
+
+<%= link_to new_store_path ,title: "new store" do %>
+  <i class="medium material-icons left">add_box</i>
+<% end %> 
+
 <div class="col s12 m7">
     <h4 class="header">Stores</h4>
     <% @stores.each do |store| %>
@@ -31,39 +40,20 @@
 
 </div>
 
-
-<%= link_to new_store_path ,title: "new store" do %>
-  <i class="medium material-icons left">add_box</i>
-<% end %> 
-
-<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{store.latitude},#{store.longitude}&markers=#{store.latitude},#{store.longitude}&zoom=7&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8"%>
-
 <script type="text/javascript">
-handler = Gmaps.build('Google');
-handler.buildMap({
-    provider: {
-      disableDefaultUI: true
-      // pass in other Google Maps API options here
-    },
-    internal: {
-      id: 'map'
-    }
-  },
-  function(){
-    markers = handler.addMarkers([
-      {
-        "lat": 0,
-        "lng": 0,
-        "picture": {
-          "url": "https://addons.cdn.mozilla.net/user-media/addon_icons/13/13028-64.png",
-          "width":  32,
-          "height": 32
-        },
-        "infowindow": "hello!"
-      }
-    ]);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-  }
-);
+var handler = Gmaps.build('Google');
+handler.buildMap({ internal: {id: 'geolocation'} }, function(){
+  if(navigator.geolocation)
+    navigator.geolocation.getCurrentPosition(displayOnMap);
+});
+  //markers = handler.addMarkers(<%=raw @hash.to_json %>);
+
+function displayOnMap(position){
+  var markers = handler.addMarkers(
+      <%=raw @hash.to_json %>
+  );
+  handler.map.centerOn(markers);
+
+};
+  
 </script>
