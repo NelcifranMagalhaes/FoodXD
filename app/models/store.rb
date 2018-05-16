@@ -4,6 +4,8 @@ class Store < ApplicationRecord
  	has_one_attached :logo
 
 	geocoded_by :address   # can also be an IP address
+	reverse_geocoded_by :latitude, :longitude
+
 	after_validation :geocode          # auto-fetch coordinates
 	
 	validates :address,presence: true
