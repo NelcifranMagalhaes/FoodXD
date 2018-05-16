@@ -50,8 +50,19 @@ function displayOnMap(position){
   var markers = handler.addMarkers(
       <%=raw @hash.to_json %>
   );
+  var watashi =  handler.addMarker({
+    lat: position.coords.latitude,
+    lng: position.coords.longitude,
+    picture: {
+        url: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+        width:  36,
+        height: 36
+      },
+    infowindow: "Eu!"
+  });
   //handler.map.centerOn(markers);
   handler.bounds.extendWith(markers);
+  handler.bounds.extendWith(watashi);
   handler.fitMapToBounds();
 
 };
