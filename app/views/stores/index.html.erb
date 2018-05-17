@@ -4,40 +4,66 @@
 
 <p id="notice"><%= notice %></p>
 
- <div style='width: 800px;'>
-    <div id="geolocation" style='width: 800px; height: 400px;'></div>
+<div class="row">
+
+     
+  <div class="container ">
+
+  <div style='width: 800px;'>
+    <div class="center-align" id="geolocation" style='width: 1000px; height: 600px;'></div>
   </div>
-  
 
-<%= link_to new_store_path ,title: "new store" do %>
-  <i class="medium material-icons left">add_box</i>
-<% end %> 
+    <h3 class="center-align">Lojas Cadastradas</h3>
+    <div class="custom-responsive">
+      <table class="striped hover centered">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th colspan="3">Ações</th>
 
-<div class="col s12 m7">
-    <h4 class="header">Stores</h4>
-    <% @stores.each do |store| %>
+          </tr>
+        </thead>
 
-    <div class="card horizontal">
-      <div class="card-image">
-        <% if store.logo.attached? %>
-          <%=image_tag store.logo%>
-        <% end %>
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <p><%= store.name %></p>
-          <p><%= store.address %></p>
-        </div>
-        <div class="card-action">
-          <td><%= link_to 'Show', store %></td>
-          <td><%= link_to 'Edit', edit_store_path(store) %></td>
-          <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Você tem certeza?'} %></td>
-        </div>
-      </div>
+        <tbody>
+          <% @stores.each do |store| %>
+
+          <tr>
+            <td><p><%= store.name %></p></td>
+            <td><p><%= store.address %></p></td>
+            <td>
+              <%= link_to store  do %>
+              <i class="material-icons left">remove_red_eye</i>
+              <% end %>
+            </td>
+            <td>
+                          
+              <%= link_to edit_store_path(store) do%>
+                  <i class="material-icons left">edit</i>
+              <% end %>
+            </td>
+              <td>
+                        
+                <%= link_to store, method: :delete, data: { confirm: 'Você tem certeza?'}  do%>
+                    <i class="material-icons left">clear</i>
+                <% end %>
+              </td>
+                          
+            </td>
+          </tr>
+                  
+
+          <% end %>
+        </tbody>
+      </table>
+
+
     </div>
-    <% end %>
-
+    </div>
 </div>
+
+
+
 
 <script type="text/javascript">
 var handler = Gmaps.build('Google');

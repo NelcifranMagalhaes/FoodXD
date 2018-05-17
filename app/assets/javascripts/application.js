@@ -16,4 +16,6 @@
 //= require materialize-sprockets
 //= require underscore
 //= require gmaps/google
+//=	require app
+//= require demo
 //= require_tree .

@@ -1,8 +1,11 @@
-<h4>New Store</h4>
-
-<%= render 'form', store: @store %>
-
 <div class="row">
 
-	<%= link_to 'Back', stores_path ,class: 'waves-effect waves-light btn'%>
+	<h4 align="center">Nova loja</h4>
+
+	<%= render 'form', store: @store %>
+
+</div>
+<div class="center-align">
+	
+	<%= link_to 'Voltar', stores_path ,class: 'waves-effect waves-light btn'%>
 </div>
