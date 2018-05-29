@@ -13,7 +13,6 @@
 <%- if current_user.present?%>
   <ul id="slide-out" class="side-nav fixed z-depth-4">
         <li>
-          <%image_tag("avatar04.png",class: "circle")%>
           <p class="white-text email"><%=current_user.email%></p>
            <%- if current_user.present?%>
         </li>
@@ -84,6 +83,7 @@
         </ul>
       </li>
     </ul>
+
 <% end %>
     <main>
       <section class="content">
@@ -93,4 +93,8 @@
     </main>
 
   </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
 </html>
+

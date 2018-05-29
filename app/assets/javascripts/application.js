@@ -9,13 +9,12 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//= require jquery
+//= require jquery3
+//= require jquery_ujs
 //= require cocoon
 //= require rails-ujs
 //= require activestorage
 //= require materialize-sprockets
 //= require underscore
 //= require gmaps/google
-//=	require app
-//= require demo
 //= require_tree .

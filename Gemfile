@@ -61,10 +61,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'jquery-rails'
 # Sempre inclua
-gem 'materialize-sass'
+gem 'materialize-sass', '~> 1.0.0.rc1'
 gem 'material_icons'
 gem 'devise'
 gem 'simple_form'
 gem "cocoon"
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'rails-i18n', '~> 5.1' # For 5.0.x, 5.1.x and 5.2.x
