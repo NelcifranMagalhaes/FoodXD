@@ -61,7 +61,11 @@
               <a class="collapsible-header">Gerenciar Usuários<i class="material-icons pink-item">person</i></a>
               <div class="collapsible-body">
                 <ul>
-                  <li><a href="userdetails.html">User Detail</a></li>
+                  <li>
+                    <%= link_to (users_path), title: "Usuários" do %>
+                    Ver Usuários
+                    <% end %>
+                  </li>
                   <li><a href="recentusers.html">Recent Users</a></li>
                   <li><a href="reports.html">Reports</a></li>
                 </ul>

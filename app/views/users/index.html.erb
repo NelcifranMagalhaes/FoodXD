@@ -1,0 +1,40 @@
+  <h3 class="center-align">Usuários Cadastrados</h3>
+    <div class="custom-responsive">
+      <table class="striped hover centered">
+        <thead>
+          <tr>
+            <th>email</th>
+            <th colspan="3">Ações</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @users.each do |user| %>
+
+          <tr>
+            <td><p><%= user.email %></p></td>
+            <td>
+              <%= link_to user  do %>
+              <i class="material-icons left">remove_red_eye</i>
+              <% end %>
+            </td>
+            <td>
+                          
+              <%= link_to edit_user_path(user) do%>
+                  <i class="material-icons left">edit</i>
+              <% end %>
+            </td>
+              <td>
+                        
+                <%= link_to user, method: :delete, data: { confirm: 'Você tem certeza?'}  do%>
+                    <i class="material-icons left">clear</i>
+                <% end %>
+              </td>
+                          
+            </td>
+          </tr>
+                  
+          <% end %>
+        </tbody>
+      </table>
+    </div>
