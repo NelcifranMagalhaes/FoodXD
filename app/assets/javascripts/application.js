@@ -9,7 +9,7 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//= require jquery3
+//= require jquery
 //= require jquery_ujs
 //= require cocoon
 //= require rails-ujs
@@ -17,4 +17,5 @@
 //= require materialize-sprockets
 //= require underscore
 //= require gmaps/google
+//= require materialize.min
 //= require_tree .
