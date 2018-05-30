@@ -7,100 +7,101 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
   </head>
 
   <body>
-<%- if current_user.present?%>
-  <ul id="slide-out" class="side-nav fixed z-depth-4">
+    <%- if current_user.present?%>
+    <ul id="slide-out" class="side-nav fixed z-depth-4">
+          <li>
+            <p class="white-text email"><%=current_user.email%></p>
+             <%- if current_user.present?%>
+          </li>
+          <li>
+            <%= link_to('Log out'.html_safe,  destroy_user_session_path , method: 'delete',class: 'waves-effect waves-light btn')%>
+              <% end %>
+          </li>
+
         <li>
-          <p class="white-text email"><%=current_user.email%></p>
-           <%- if current_user.present?%>
-        </li>
-        <li>
-          <%= link_to('Log out'.html_safe,  destroy_user_session_path , method: 'delete',class: 'waves-effect waves-light btn')%>
-            <% end %>
+          <form class="sidebar-form">
+            <div class="input-group">
+              <input id="accounts" type="text" name="username" class="form-control" placeholder="Universal Search" autocomplete="off" />
+            </div>
+          </form>
         </li>
 
-      <li>
-        <form class="sidebar-form">
-          <div class="input-group">
-            <input id="accounts" type="text" name="username" class="form-control" placeholder="Universal Search" autocomplete="off" />
+        <li>
+         <%= link_to root_path, title: "dashboard", class: "active" do %>
+          Dashboard
+          <i class="material-icons pink-item">dashboard</i>
+        <% end %>
+        </li>
+
+        <li><div class="divider"></div></li>
+
+        <li><a class="subheader">Opções</a></li>
+
+        <li>
+          <%= link_to (stores_path), title: "Lojas" do %>
+            Lojas
+            <i class="material-icons pink-item">store</i>
+          <% end %>
+        </li>
+
+        <li>
+          <%= link_to (new_store_path), title: "Adicionar Loja" do %>
+            Adicionar Loja
+            <i class="material-icons pink-item">add_shopping_cart</i>
+          <% end %>
+        </li>
+
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li>
+              <a class="collapsible-header">Gerenciar Usuários<i class="material-icons pink-item">person</i></a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="userdetails.html">User Detail</a></li>
+                  <li><a href="recentusers.html">Recent Users</a></li>
+                  <li><a href="reports.html">Reports</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </li>
+
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li>
+              <a class="collapsible-header">Announcements<i class="material-icons pink-item">arrow_drop_down</i></a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="addannoun.html">Add New</a></li>
+                  <li><a href="allannoun.html">All Announcements</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+  <% end %>
+      <main>
+        <section class="content">
+           <div class="page-announce valign-wrapper"><a href="#" data-activates="slide-out" class="button-collapse valign hide-on-large-only"><i class="material-icons">menu</i></a><h1 class="page-announce-text valign">FoodXD</h1></div>
+          <div class="container">
+          <div class="row">
+            <%= yield %>
           </div>
-        </form>
-      </li>
-
-      <li>
-       <%= link_to root_path, title: "dashboard", class: "active" do %>
-        Dashboard
-        <i class="material-icons pink-item">dashboard</i>
-      <% end %>
-      </li>
-
-      <li><div class="divider"></div></li>
-
-      <li><a class="subheader">Opções</a></li>
-
-      <li>
-        <%= link_to (stores_path), title: "Lojas" do %>
-          Lojas
-          <i class="material-icons pink-item">store</i>
-        <% end %>
-      </li>
-
-      <li>
-        <%= link_to (new_store_path), title: "Adicionar Loja" do %>
-          Adicionar Loja
-          <i class="material-icons pink-item">add_shopping_cart</i>
-        <% end %>
-      </li>
-
-      <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-          <li>
-            <a class="collapsible-header">Gerenciar Usuários<i class="material-icons pink-item">person</i></a>
-            <div class="collapsible-body">
-              <ul>
-                <li><a href="userdetails.html">User Detail</a></li>
-                <li><a href="recentusers.html">Recent Users</a></li>
-                <li><a href="reports.html">Reports</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </li>
-
-      <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-          <li>
-            <a class="collapsible-header">Announcements<i class="material-icons pink-item">arrow_drop_down</i></a>
-            <div class="collapsible-body">
-              <ul>
-                <li><a href="addannoun.html">Add New</a></li>
-                <li><a href="allannoun.html">All Announcements</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </li>
-    </ul>
-
-<% end %>
-    <main>
-      <section class="content">
-        <div class="container">
-        <div class="row">
-          <%= yield %>
-        </div>
-        </div>
-      </section>
-    </main>
+          </div>
+        </section>
+      </main>
 
   </body>
 
 </html>
 
-    <script>
+<script>
     // Hide sideNav
     $('.button-collapse').sideNav({
     menuWidth: 300, // Default is 300
@@ -113,4 +114,4 @@
       });
       $('select').material_select();
       $('.collapsible').collapsible();
-      </script>
+</script>
