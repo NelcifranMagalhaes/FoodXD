@@ -12,17 +12,14 @@
 
   <body>
     <%- if current_user.present?%>
-    <%- if current_user.has_role? :admin%>
 
     <ul id="slide-out" class="side-nav fixed z-depth-4">
-          <li>
-            <p class="white-text email"><%=current_user.email%></p>
-             <%- if current_user.present?%>
-          </li>
-          <li>
-            <%= link_to('Log out'.html_safe,  destroy_user_session_path , method: 'delete',class: 'waves-effect waves-light btn')%>
-              <% end %>
-          </li>
+
+        <li><a class="subheader"><%=current_user.email%></a></li>
+        
+        <li>
+          <%= link_to('Log out'.html_safe,  destroy_user_session_path , method: 'delete',class: 'waves-effect waves-light btn')%>
+        </li>
 
         <li>
           <form class="sidebar-form">
@@ -57,25 +54,26 @@
           <% end %>
         </li>
 
-        <li class="no-padding">
-          <ul class="collapsible collapsible-accordion">
-            <li>
-              <a class="collapsible-header">Gerenciar Usuários<i class="material-icons pink-item">person</i></a>
-              <div class="collapsible-body">
-                <ul>
-                  <li>
-                    <%= link_to (users_path), title: "Usuários" do %>
-                    Ver Usuários
-                    <% end %>
-                  </li>
-                  <li><a href="recentusers.html">Recent Users</a></li>
-                  <li><a href="reports.html">Reports</a></li>
-                </ul>
-              </div>
-            </li>
-          </ul>
-        </li>
-
+        <%- if current_user.has_role? :admin%>
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header">Gerenciar Usuários<i class="material-icons pink-item">person</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li>
+                      <%= link_to (users_path), title: "Usuários" do %>
+                      Ver Usuários
+                      <% end %>
+                    </li>
+                    <li><a href="recentusers.html">Recent Users</a></li>
+                    <li><a href="reports.html">Reports</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+        <% end %>
         <li class="no-padding">
           <ul class="collapsible collapsible-accordion">
             <li>
@@ -91,7 +89,6 @@
         </li>
       </ul>
 
-  <% end %>
   <% end %>
   
       <main>
