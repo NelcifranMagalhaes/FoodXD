@@ -1,13 +1,11 @@
-<h4>Editing Store</h4>
+<h4 class="flow-text">Editando <%=@store.name%></h4>
+
 
 <%= render 'form', store: @store %>
 
-<%= link_to @store  do %>
-	<i class="material-icons left">remove_red_eye</i>
-<% end %> 
 
-
-<%= link_to stores_path do %>
-	<i class="material-icons left">arrow_back</i>
-<% end %> 
+<div class="center-align">
+	
+	<%= link_to 'Voltar', stores_path ,class: 'waves-effect waves-light btn'%>
+</div>
 

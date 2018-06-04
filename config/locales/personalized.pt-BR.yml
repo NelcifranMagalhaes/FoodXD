@@ -1,0 +1,17 @@
+# encoding: UTF-8
+pt-BR:
+  activerecord:
+    models:
+      food: Comida 
+      store: Loja
+      user: Usuário
+
+    attributes:
+      store:
+        name: Nome
+        address: Endereço
+
+      food:
+        name: Nome
+        price: Preço
+

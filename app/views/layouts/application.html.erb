@@ -41,7 +41,7 @@
         <li><a class="subheader">Opções</a></li>
 
         <li>
-          <%= link_to (stores_path), title: "Lojas" do %>
+          <%= link_to (stores_list_path), title: "Lojas" do %>
             Lojas
             <i class="material-icons pink-item">store</i>
           <% end %>
@@ -66,27 +66,14 @@
                       Ver Usuários
                       <% end %>
                     </li>
-                    <li><a href="recentusers.html">Recent Users</a></li>
-                    <li><a href="reports.html">Reports</a></li>
+                    
                   </ul>
                 </div>
               </li>
             </ul>
           </li>
         <% end %>
-        <li class="no-padding">
-          <ul class="collapsible collapsible-accordion">
-            <li>
-              <a class="collapsible-header">Announcements<i class="material-icons pink-item">arrow_drop_down</i></a>
-              <div class="collapsible-body">
-                <ul>
-                  <li><a href="addannoun.html">Add New</a></li>
-                  <li><a href="allannoun.html">All Announcements</a></li>
-                </ul>
-              </div>
-            </li>
-          </ul>
-        </li>
+        
       </ul>
 
   <% end %>
