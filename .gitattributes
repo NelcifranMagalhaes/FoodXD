@@ -1,0 +1,6 @@
+*.rb linguist-language=ruby
+
+*.js linguist-vendored=false
+*.scss linguist-vendored=false
+*.js linguist-detectable=false
+*.scss linguist-detectable=false
